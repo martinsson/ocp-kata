@@ -2,7 +2,7 @@ package it.xpug.ocp.checkout;
 
 import java.util.List;
 
-public class UnitDiscount {
+public class UnitDiscount implements Discount {
 
     private int requiredNumber;
     private int discountAmount;
@@ -18,6 +18,7 @@ public class UnitDiscount {
         return quantity >= requiredNumber ? discountAmount : 0;
     }
 
+    @Override
     public int registerItem() {
         currentQuantity++;
         if (currentQuantity % requiredNumber == 0) {

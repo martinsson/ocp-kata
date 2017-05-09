@@ -12,7 +12,7 @@ public class CheckoutFactory {
         prices.put("C", 20);
 
         SummingCalculator priceCalculator = new SummingCalculator(prices);
-        Map<String, UnitDiscount> unitDiscounts = new HashMap<String,UnitDiscount>() {{
+        Map<String, Discount> unitDiscounts = new HashMap<String,Discount>() {{
             put("A", new UnitDiscount(3, 20));
         }};
         DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);

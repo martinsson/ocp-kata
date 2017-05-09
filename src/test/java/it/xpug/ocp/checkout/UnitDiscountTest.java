@@ -6,22 +6,22 @@ import org.junit.Test;
 public class UnitDiscountTest {
     @Test
     public void appliesDiscountWhenMinimumQuanityIsReached() throws Exception {
-        UnitDiscount unitDiscount = new UnitDiscount(2, 50);
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(50, unitDiscount.registerItem());
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(50, unitDiscount.registerItem());
+        Discount discount = new UnitDiscount(2, 50);
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(50, discount.registerItem());
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(50, discount.registerItem());
     }
 
 
     @Test
     public void appliesDiscountWhenMinimumQuanityIsReached3() throws Exception {
-        UnitDiscount unitDiscount = new UnitDiscount(3, 30);
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(30, unitDiscount.registerItem());
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(0, unitDiscount.registerItem());
-        Assert.assertEquals(30, unitDiscount.registerItem());
+        Discount discount = new UnitDiscount(3, 30);
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(30, discount.registerItem());
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(0, discount.registerItem());
+        Assert.assertEquals(30, discount.registerItem());
     }
 }
