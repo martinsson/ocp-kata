@@ -52,7 +52,7 @@ public class CheckoutTest {
 		assertEquals(50 + 30 + 20, checkOut.total());
 	}
 
-	@Test@Ignore
+	@Test
 	public void specialOffer() throws Exception {
 		checkOut.scan("A");
 		checkOut.scan("A");
