@@ -22,7 +22,7 @@ public class CheckoutTest {
 
 	@Before
 	public void setUp() throws Exception {
-		checkOut = new CheckOut();
+		checkOut = CheckoutFactory.checkout();
 	}
 
 	@Test

@@ -2,11 +2,19 @@ package it.xpug.ocp.checkout;
 
 public class CheckOut {
 
-	public int total() {
-		return -1;
+    private PriceCalculator calculator;
+
+    public CheckOut(PriceCalculator calculator) {
+
+        this.calculator = calculator;
+    }
+
+    public int total() {
+		return calculator.total();
 	}
 
 	public void scan(String code) {
+        calculator.add(code);
 	}
 
 }
