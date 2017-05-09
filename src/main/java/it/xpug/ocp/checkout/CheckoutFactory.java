@@ -10,7 +10,13 @@ public class CheckoutFactory {
         prices.put("A", 50);
         prices.put("B", 30);
         prices.put("C", 20);
-        return new CheckOut(new SummingCalculator(prices));
+
+        SummingCalculator priceCalculator = new SummingCalculator(prices);
+        Map<String, UnitDiscount> unitDiscounts = new HashMap<String,UnitDiscount>() {{
+            put("A", new UnitDiscount(3, 20));
+        }};
+        DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);
+        return new CheckOut(discountDecorator);
 
     }
 }
