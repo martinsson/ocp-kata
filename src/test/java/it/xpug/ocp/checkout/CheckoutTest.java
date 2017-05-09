@@ -34,7 +34,7 @@ public class CheckoutTest {
 		assertEquals(50 + 50, checkOut.total());
 	}
 
-	@Test@Ignore
+	@Test
 	public void twoKindsOfItems() throws Exception {
 		checkOut.scan("A");
 		assertEquals(50, checkOut.total());
@@ -42,7 +42,7 @@ public class CheckoutTest {
 		assertEquals(50 + 30, checkOut.total());
 	}
 
-	@Test@Ignore
+	@Test
 	public void threeKindsOfItems() throws Exception {
 		checkOut.scan("A");
 		assertEquals(50, checkOut.total());
