@@ -18,7 +18,7 @@ public class DiscountDecoratorTest {
         }
     };
 
-    DiscountDecorator discountDecorator = new DiscountDecorator(fixedPriceOf50, new HashMap<String, Discount>() {{
+    PriceCalculator discountDecorator = new UnitDiscountDecorator(fixedPriceOf50, new HashMap<String, Discount>() {{
         put("A", new UnitDiscount(3, 20));
     }});
 
