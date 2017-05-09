@@ -1,7 +1,8 @@
-package it.xpug.ocp.checkout;
+package it.xpug.ocp.checkout.decorators;
+
+import it.xpug.ocp.checkout.PriceCalculator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public abstract class PriceDecorator implements PriceCalculator {
@@ -13,12 +14,21 @@ public abstract class PriceDecorator implements PriceCalculator {
         this.priceCalculator = priceCalculator;
     }
 
-    protected int delegateTotal() {
-        return priceCalculator.total();
+    @Override
+    public int total() {
+        return priceCalculator.total() + decoratorTotal();
     }
 
-    protected void delegateAddToCheckout(String code) {
+    protected abstract int decoratorTotal();
+
+    @Override
+    public void add(String code) {
+        registerItem(code);
         boughtItems.add(code);
         priceCalculator.add(code);
     }
+
+    protected abstract void registerItem(String code);
+
+
 }

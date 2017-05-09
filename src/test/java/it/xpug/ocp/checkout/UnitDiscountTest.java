@@ -1,5 +1,7 @@
 package it.xpug.ocp.checkout;
 
+import it.xpug.ocp.checkout.decorators.Discount;
+import it.xpug.ocp.checkout.unitdiscount.UnitDiscount;
 import org.junit.Assert;
 import org.junit.Test;
 

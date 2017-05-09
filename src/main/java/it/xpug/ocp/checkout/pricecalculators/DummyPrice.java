@@ -1,4 +1,6 @@
-package it.xpug.ocp.checkout;
+package it.xpug.ocp.checkout.pricecalculators;
+
+import it.xpug.ocp.checkout.PriceCalculator;
 
 public class DummyPrice implements PriceCalculator {
     @Override

@@ -2,6 +2,7 @@ package it.xpug.ocp.checkout;
 
 import static org.junit.Assert.*;
 
+import it.xpug.ocp.checkout.main.CheckoutFactory;
 import org.junit.*;
 
 /*

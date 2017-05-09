@@ -1,4 +1,10 @@
-package it.xpug.ocp.checkout;
+package it.xpug.ocp.checkout.main;
+
+import it.xpug.ocp.checkout.CheckOut;
+import it.xpug.ocp.checkout.decorators.Discount;
+import it.xpug.ocp.checkout.decorators.DiscountDecorator;
+import it.xpug.ocp.checkout.pricecalculators.SummingCalculator;
+import it.xpug.ocp.checkout.unitdiscount.UnitDiscount;
 
 import java.util.HashMap;
 import java.util.Map;
