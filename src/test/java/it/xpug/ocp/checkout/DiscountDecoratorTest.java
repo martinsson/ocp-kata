@@ -9,10 +9,10 @@ public class DiscountDecoratorTest {
 
     @Test
     public void givesA20DiscountForThreeAs() throws Exception {
-        PriceCalculator zeroPrice = new PriceCalculator() {
+        PriceCalculator fixedPriceOf50 = new PriceCalculator() {
             @Override
             public int total() {
-                return 0;
+                return 50;
             }
 
             @Override
@@ -21,12 +21,14 @@ public class DiscountDecoratorTest {
             }
         };
 
-        DiscountDecorator discountDecorator = new DiscountDecorator(zeroPrice, new HashMap<String, UnitDiscount>() {{
+        DiscountDecorator discountDecorator = new DiscountDecorator(fixedPriceOf50, new HashMap<String, UnitDiscount>() {{
             put("A", new UnitDiscount(3, 20));
         }});
 
         discountDecorator.add("A");
+        discountDecorator.add("A");
+        discountDecorator.add("A");
 
-        Assert.assertEquals(-20, discountDecorator.total());
+        Assert.assertEquals(50-20, discountDecorator.total());
     }
 }
