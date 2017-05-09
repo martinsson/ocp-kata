@@ -19,8 +19,6 @@ public class DiscountDecorator implements PriceCalculator {
 
     @Override
     public int total() {
-//        int discount = boughtItems.stream().mapToInt(this::registerForDiscount).sum();
-//        System.out.println(discount+"");
         return priceCalculator.total() - discount;
     }
 

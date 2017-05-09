@@ -14,6 +14,7 @@ public class CheckoutFactory {
         SummingCalculator priceCalculator = new SummingCalculator(prices);
         Map<String, Discount> unitDiscounts = new HashMap<String,Discount>() {{
             put("A", new UnitDiscount(3, 20));
+            put("B", new UnitDiscount(2, 15));
         }};
         DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);
         return new CheckOut(discountDecorator);
