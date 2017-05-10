@@ -30,21 +30,9 @@ public class CheckoutFactory {
         DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);
         CrossDiscount crossDiscount = new CrossDiscount("E", "C", 2, 36);
         List<CrossDiscount> crossDiscounts = Arrays.asList(crossDiscount);
-        PriceDecorator crossDiscountDecorator = new PriceDecorator(discountDecorator) {
-
-            @Override
-            protected int decoratorTotal() {
-
-                return - crossDiscounts.stream().mapToInt(discounter -> discounter.discount(this.boughtItems)).sum();
-//                return -crossDiscount.discount(this.boughtItems);
-            }
-
-            @Override
-            protected void registerItem(String code) {
-
-            }
-        };
+        PriceDecorator crossDiscountDecorator = new CrossDiscountDecorator(discountDecorator, crossDiscounts);
         return new CheckOut(crossDiscountDecorator);
 
     }
+
 }
