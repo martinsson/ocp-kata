@@ -1,8 +1,10 @@
 package it.xpug.ocp.checkout.main;
 
 import it.xpug.ocp.checkout.CheckOut;
+import it.xpug.ocp.checkout.CrossDiscount;
 import it.xpug.ocp.checkout.decorators.Discount;
 import it.xpug.ocp.checkout.decorators.DiscountDecorator;
+import it.xpug.ocp.checkout.decorators.PriceDecorator;
 import it.xpug.ocp.checkout.pricecalculators.SummingCalculator;
 import it.xpug.ocp.checkout.unitdiscount.UnitDiscount;
 
@@ -16,6 +18,7 @@ public class CheckoutFactory {
         prices.put("A", 50);
         prices.put("B", 30);
         prices.put("C", 20);
+        prices.put("E", 55);
 
         SummingCalculator priceCalculator = new SummingCalculator(prices);
         Map<String, Discount> unitDiscounts = new HashMap<String,Discount>() {{
@@ -23,7 +26,21 @@ public class CheckoutFactory {
             put("B", new UnitDiscount(2, 15));
         }};
         DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);
-        return new CheckOut(discountDecorator);
+        PriceDecorator crossDiscountDecorator = new PriceDecorator(discountDecorator) {
+
+            @Override
+            protected int decoratorTotal() {
+                CrossDiscount crossDiscount = new CrossDiscount("E", "C", 2, 36);
+
+                return -crossDiscount.discount(this.boughtItems);
+            }
+
+            @Override
+            protected void registerItem(String code) {
+
+            }
+        };
+        return new CheckOut(crossDiscountDecorator);
 
     }
 }

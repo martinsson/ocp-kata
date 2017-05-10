@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class PriceDecorator implements PriceCalculator {
 
     protected PriceCalculator priceCalculator;
-    private List<String> boughtItems = new ArrayList<>();
+    protected List<String> boughtItems = new ArrayList<>();
 
     public PriceDecorator(PriceCalculator priceCalculator) {
         this.priceCalculator = priceCalculator;

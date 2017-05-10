@@ -73,7 +73,7 @@ public class CheckoutTest {
 		assertEquals(45 + 45, checkOut.total());
 	}
 
-	@Test@Ignore
+	@Test
 	public void thisIsDifficult() throws Exception {
 		// One more variation:
 		// "E" costs 55.
