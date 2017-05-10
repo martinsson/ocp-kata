@@ -1,7 +1,5 @@
 package it.xpug.ocp.checkout.unitdiscount;
 
-import it.xpug.ocp.checkout.decorators.Discount;
-
 public class UnitDiscount implements Discount {
 
     private int requiredNumber;

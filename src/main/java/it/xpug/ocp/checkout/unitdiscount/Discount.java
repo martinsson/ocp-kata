@@ -1,4 +1,4 @@
-package it.xpug.ocp.checkout.decorators;
+package it.xpug.ocp.checkout.unitdiscount;
 
 public interface Discount {
     int registerItem();

@@ -1,4 +1,4 @@
-package it.xpug.ocp.checkout.decorators;
+package it.xpug.ocp.checkout.crossdiscount;
 
 import java.util.List;
 
@@ -17,7 +17,9 @@ public class CrossDiscount {
     }
 
     public int discount(List<String> shoppingBasket) {
-        long numberOfDiscounters = shoppingBasket.stream().filter(item -> discounter.equals(item)).count();
+        long numberOfDiscounters = shoppingBasket.stream()
+                .filter(item -> discounter.equals(item))
+                .count();
         if (shoppingBasket.contains(discountee) && numberOfDiscounters >= minQuantity) {
             return amount;
         }

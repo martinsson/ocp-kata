@@ -1,4 +1,4 @@
-package it.xpug.ocp.checkout.decorators;
+package it.xpug.ocp.checkout;
 
 import it.xpug.ocp.checkout.PriceCalculator;
 
