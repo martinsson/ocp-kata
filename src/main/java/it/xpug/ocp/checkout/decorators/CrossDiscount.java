@@ -1,4 +1,4 @@
-package it.xpug.ocp.checkout;
+package it.xpug.ocp.checkout.decorators;
 
 import java.util.List;
 

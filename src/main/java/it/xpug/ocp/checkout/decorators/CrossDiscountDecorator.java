@@ -1,12 +1,8 @@
-package it.xpug.ocp.checkout.main;
-
-import it.xpug.ocp.checkout.CrossDiscount;
-import it.xpug.ocp.checkout.decorators.DiscountDecorator;
-import it.xpug.ocp.checkout.decorators.PriceDecorator;
+package it.xpug.ocp.checkout.decorators;
 
 import java.util.List;
 
-class CrossDiscountDecorator extends PriceDecorator {
+public class CrossDiscountDecorator extends PriceDecorator {
 
     private final List<CrossDiscount> crossDiscounts;
 

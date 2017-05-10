@@ -1,7 +1,8 @@
 package it.xpug.ocp.checkout.main;
 
 import it.xpug.ocp.checkout.CheckOut;
-import it.xpug.ocp.checkout.CrossDiscount;
+import it.xpug.ocp.checkout.decorators.CrossDiscount;
+import it.xpug.ocp.checkout.decorators.CrossDiscountDecorator;
 import it.xpug.ocp.checkout.decorators.Discount;
 import it.xpug.ocp.checkout.decorators.DiscountDecorator;
 import it.xpug.ocp.checkout.decorators.PriceDecorator;
