@@ -8,7 +8,9 @@ import it.xpug.ocp.checkout.decorators.PriceDecorator;
 import it.xpug.ocp.checkout.pricecalculators.SummingCalculator;
 import it.xpug.ocp.checkout.unitdiscount.UnitDiscount;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutFactory {
@@ -26,13 +28,15 @@ public class CheckoutFactory {
             put("B", new UnitDiscount(2, 15));
         }};
         DiscountDecorator discountDecorator = new DiscountDecorator(priceCalculator, unitDiscounts);
+        CrossDiscount crossDiscount = new CrossDiscount("E", "C", 2, 36);
+        List<CrossDiscount> crossDiscounts = Arrays.asList(crossDiscount);
         PriceDecorator crossDiscountDecorator = new PriceDecorator(discountDecorator) {
 
             @Override
             protected int decoratorTotal() {
-                CrossDiscount crossDiscount = new CrossDiscount("E", "C", 2, 36);
 
-                return -crossDiscount.discount(this.boughtItems);
+                return - crossDiscounts.stream().mapToInt(discounter -> discounter.discount(this.boughtItems)).sum();
+//                return -crossDiscount.discount(this.boughtItems);
             }
 
             @Override
